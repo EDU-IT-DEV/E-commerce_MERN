@@ -18,7 +18,7 @@ const Register = ({ history }) => {
     // console.log("ENV --->", process.env.REACT_APP_REGISTER_REDIRECT_URL);
     const config = {
       url: process.env.REACT_APP_REGISTER_REDIRECT_URL, //this return the next link from the  .env file 'http://localhost:3000/register/complete'
-      handleCodeInApp: true,  
+      handleCodeInApp: true,
     };
 
     await auth.sendSignInLinkToEmail(email, config);
