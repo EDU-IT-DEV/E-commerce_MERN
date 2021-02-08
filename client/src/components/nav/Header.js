@@ -24,7 +24,6 @@ const Header = () => {
 
   const handleClick = (e) => {
     // console.log(e.key);
-
     setCurrent(e.key);
   };
 
