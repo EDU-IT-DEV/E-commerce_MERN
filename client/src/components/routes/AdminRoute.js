@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LoadingToRedirect from "./LoadingToRedirect";
@@ -6,14 +6,13 @@ import { currentAdmin } from "../../functions/auth";
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user } = useSelector((state) => ({ ...state }));
-
   const [ok, setOk] = useState(false);
 
   useEffect(() => {
     if (user && user.token) {
       currentAdmin(user.token)
         .then((res) => {
-          console.log("CURRENT ADIN RES", res);
+          console.log("CURRENT ADMIN RES", res);
           setOk(true);
         })
         .catch((err) => {
@@ -21,7 +20,7 @@ const AdminRoute = ({ children, ...rest }) => {
           setOk(false);
         });
     }
-  }, [user]); //whenever the user changes in the state, useEffect will be redered
+  }, [user]);
 
   return ok ? <Route {...rest} /> : <LoadingToRedirect />;
 };

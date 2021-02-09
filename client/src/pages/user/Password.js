@@ -9,7 +9,8 @@ const Password = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(password);
+    setLoading(true);
+    // console.log(password);
 
     await auth.currentUser
       .updatePassword(password)
@@ -32,7 +33,7 @@ const Password = () => {
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           className="form-control"
-          placehokder="Enter new password"
+          placeholder="Enter new password"
           disabled={loading}
           value={password}
         />
@@ -58,7 +59,6 @@ const Password = () => {
           ) : (
             <h4>Password Update</h4>
           )}
-
           {passwordUpdateForm()}
         </div>
       </div>

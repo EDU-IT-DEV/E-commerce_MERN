@@ -8,13 +8,12 @@ import { Link } from "react-router-dom";
 import { createOrUpdateUser } from "../../functions/auth";
 
 const Login = ({ history }) => {
-  const [email, setEmail] = useState("edu.programmer.it@gmail.com");
-  const [password, setPassword] = useState("1unq2fpoc");
+  const [email, setEmail] = useState("gqlreactnode@gmail.com");
+  const [password, setPassword] = useState("gggggg");
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => ({ ...state }));
 
-  //useEffect run when the componen is mounted
   useEffect(() => {
     if (user && user.token) history.push("/");
   }, [user, history]);
@@ -51,9 +50,11 @@ const Login = ({ history }) => {
               _id: res.data._id,
             },
           });
-          roleBasedRedirect(res); //history.push("/");
+          roleBasedRedirect(res);
         })
         .catch((err) => console.log(err));
+
+      // history.push("/");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -67,7 +68,6 @@ const Login = ({ history }) => {
       .then(async (result) => {
         const { user } = result;
         const idTokenResult = await user.getIdTokenResult();
-
         createOrUpdateUser(idTokenResult.token)
           .then((res) => {
             dispatch({
@@ -80,9 +80,10 @@ const Login = ({ history }) => {
                 _id: res.data._id,
               },
             });
-            roleBasedRedirect(res); //history.push("/");
+            roleBasedRedirect(res);
           })
           .catch((err) => console.log(err));
+        // history.push("/");
       })
       .catch((err) => {
         console.log(err);

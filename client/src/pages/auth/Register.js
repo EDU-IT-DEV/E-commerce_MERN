@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 const Register = ({ history }) => {
   const [email, setEmail] = useState("");
 
-  //useSelector is just to get the state from de store.
   const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const Register = ({ history }) => {
     e.preventDefault();
     // console.log("ENV --->", process.env.REACT_APP_REGISTER_REDIRECT_URL);
     const config = {
-      url: process.env.REACT_APP_REGISTER_REDIRECT_URL, //this return the next link from the  .env file 'http://localhost:3000/register/complete'
+      url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
       handleCodeInApp: true,
     };
 

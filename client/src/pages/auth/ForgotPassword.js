@@ -9,9 +9,7 @@ const ForgotPassword = ({ history }) => {
 
   const { user } = useSelector((state) => ({ ...state }));
 
-  //useEffect run when the component is mounted, but in this case, it has dependecy [user], it will wait for user changes before to run the function.
   useEffect(() => {
-    //In case that the user wants to enter into the FORGOT PASSWORD link, the system will check if it is login or not. If it's not logged, will be redirected automatically to the login page.
     if (user && user.token) history.push("/");
   }, [user, history]);
 

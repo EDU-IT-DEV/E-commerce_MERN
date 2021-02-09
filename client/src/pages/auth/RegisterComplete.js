@@ -8,15 +8,14 @@ const RegisterComplete = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //const { user } = useSelector((state) => ({ ...state }));
+  // const { user } = useSelector((state) => ({ ...state }));
+  let dispatch = useDispatch();
 
   useEffect(() => {
     setEmail(window.localStorage.getItem("emailForRegistration"));
     // console.log(window.location.href);
     // console.log(window.localStorage.getItem("emailForRegistration"));
   }, [history]);
-
-  let dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +44,8 @@ const RegisterComplete = ({ history }) => {
         await user.updatePassword(password);
         const idTokenResult = await user.getIdTokenResult();
         // redux store
+        console.log("user", user, "idTokenResult", idTokenResult);
+
         createOrUpdateUser(idTokenResult.token)
           .then((res) => {
             dispatch({

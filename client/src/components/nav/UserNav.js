@@ -9,14 +9,16 @@ const UserNav = () => (
           History
         </Link>
       </li>
+
       <li className="nav-item">
         <Link to="/user/password" className="nav-link">
           Password
         </Link>
       </li>
+
       <li className="nav-item">
-        <Link to="/user/withlist" className="nav-link">
-          withlist
+        <Link to="/user/wishlist" className="nav-link">
+          Wishlist
         </Link>
       </li>
     </ul>
