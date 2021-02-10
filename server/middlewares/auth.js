@@ -19,7 +19,7 @@ exports.authCheck = async (req, res, next) => {
 
 exports.adminCheck = async (req, res, next) => {
   const { email } = req.user;
-  console.log("checkeando email de usuario logado como admin: ", email);
+
   const adminUser = await User.findOne({ email }).exec();
 
   if (adminUser.role !== "admin") {
