@@ -14,8 +14,8 @@ const SubCreate = () => {
 
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [categories, setCategories] = useState([]); //it's a list of category
-  const [category, setCategory] = useState(""); // it's just a selected category to add a new subcategory in inside of select menu. It will be sent as parent category to modals
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
   const [subs, setSubs] = useState([]);
   // step 1
   const [keyword, setKeyword] = useState("");
@@ -95,9 +95,7 @@ const SubCreate = () => {
               <option>Please select</option>
               {categories.length > 0 &&
                 categories.map((c) => (
-                  /** _id value will be sent to parent argument as  sub category model*/
                   <option key={c._id} value={c._id}>
-                    {" "}
                     {c.name}
                   </option>
                 ))}
