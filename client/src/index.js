@@ -16,8 +16,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
   // <React.StrictMode>
-  //Provider will provide information to the all application from the REDUX STORE
-  <Provider store={store}> 
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
